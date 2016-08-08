@@ -20,7 +20,7 @@ void initPixel()
 		{
 			pixel[x][y].position.x = x * PIXSIZE;
 			pixel[x][y].position.y = y * PIXSIZE;
-			if (x % (y + 1))
+			if ((x + y) % 2)
 				pixel[x][y].color = BLACK;
 			else
 				pixel[x][y].color = WHITE;
@@ -78,15 +78,11 @@ void cleanScreen()
 
 void updateScreen()
 {
-	printf("yoyo\n");
 	for (int x = 0; x < CHIP8WIDTH; x++)
 	{
 		for (int y = 0; y < CHIP8HEIGHT; y++)
 		{
 			drawPixel(pixel[x][y]);
-			printf("pixel color %d \n", pixel[x][y].color);
-			printf("pixel x %d \n", pixel[x][y].position.x);
-			printf("pixel y %d \n", pixel[x][y].position.y);
 		}
 	}
 	SDL_Flip(screen);

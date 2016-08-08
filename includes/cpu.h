@@ -17,6 +17,12 @@
 #define MEMORYSIZE	4096
 #define NREGISTER 	0xF
 #define STARTADRESS 0x200
+
+#define FPS			16//ms delay 60Hz (1/60)
+
+/*************
+ * CPU
+ * ***********/
 typedef struct	s_cpu
 {
 	Uint8	memory[MEMORYSIZE]; // size of memory
@@ -30,8 +36,20 @@ typedef struct	s_cpu
 
 }				t_cpu;
 
-t_cpu cpu;
+#define NBROPCODE 35
+typedef struct	s_opcode
+{
+	Uint16 masque[NBROPCODE];
+	Uint16 id[NBROPCODE];
+}				t_opcode
 
-void initCpu();
-void decompter();
+
+
+t_cpu		cpu;
+t_opcode	opc;
+void	initCpu();
+void	decompter();
+void	initOpcode();
+Uint16	readOpcode();
+
 #endif
