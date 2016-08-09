@@ -20,10 +20,7 @@ void initPixel()
 		{
 			pixel[x][y].position.x = x * PIXSIZE;
 			pixel[x][y].position.y = y * PIXSIZE;
-			if ((x + y) % 2)
-				pixel[x][y].color = BLACK;
-			else
-				pixel[x][y].color = WHITE;
+			pixel[x][y].color = BLACK;
 		}
 	}
 }
@@ -78,6 +75,7 @@ void cleanScreen()
 
 void updateScreen()
 {
+	char tab[64][32];
 	for (int x = 0; x < CHIP8WIDTH; x++)
 	{
 		for (int y = 0; y < CHIP8HEIGHT; y++)
@@ -86,4 +84,5 @@ void updateScreen()
 		}
 	}
 	SDL_Flip(screen);
+	printf("\tSCREEN UP\n");
 }

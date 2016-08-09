@@ -14,10 +14,11 @@
 # define CPU_H
 #include <SDL.h>
 
+#define GAMENAME	"C8PIC.ch8"
 #define MEMORYSIZE	4096
-#define NREGISTER 	0xF
+#define NREGISTER	16
 #define STARTADRESS 0x200
-
+#define CPUSPEED	4
 #define FPS			16//ms delay 60Hz (1/60)
 
 /*************
@@ -41,15 +42,17 @@ typedef struct	s_opcode
 {
 	Uint16 masque[NBROPCODE];
 	Uint16 id[NBROPCODE];
-}				t_opcode
+}				t_opcode;
 
 
 
 t_cpu		cpu;
 t_opcode	opc;
-void	initCpu();
-void	decompter();
-void	initOpcode();
-Uint16	readOpcode();
+void		initCpu();
+void		decompter();
+void		initOpcode();
+Uint16		readOpcode();
+Uint8		loadGame(char *filename);
+void		loadFont();
 
 #endif

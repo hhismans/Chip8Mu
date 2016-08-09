@@ -14,24 +14,35 @@
 #include "cpu.h"
 #include "pixel.h"
 
+
 void initSDL();
 void quitSDL();
 void pause();
 
-int main()
-{
-	int keepGoing = 1;
-
+void init(){
 	initSDL();
 	initScreen();
 	initPixel();
+	initCpu();
+	printf("finish init\n");
+}
+int main()
+{
+	init();
+	int keepGoing = 1;
 
+	int i = 0;
 	while (keepGoing)
 	{
+		for (i = 0; i < CPUSPEED;i++)
+		{
+			execOpcode(readOpcode());
+			printf("cp = %x\n", cpu.pc);
+		}
 		updateScreen();
 		SDL_Delay(FPS);
 	}
-	pause(); //last pause before finish
+	pause(); //last pause before finish*/
 	return (0);
 }
 

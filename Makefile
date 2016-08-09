@@ -5,7 +5,7 @@ EXEC=test  #Nom du programme à modifier
 FILE=test.c
 
 all:
-	gcc -o exec -Wall -Wextra -Werror -I includes/ srcs/*.c `sdl-config --cflags --libs`
+	gcc -o exec -Wall -Wextra -I includes/ srcs/*.c `sdl-config --cflags --libs`
 
 clean:	
 	rm -fr *.o
