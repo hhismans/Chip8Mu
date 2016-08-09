@@ -24,8 +24,8 @@ void init(){
 	initScreen();
 	initPixel();
 	initCpu();
-	printf("finish init\n");
 }
+
 int main()
 {
 	init();
@@ -37,7 +37,6 @@ int main()
 		for (i = 0; i < CPUSPEED;i++)
 		{
 			execOpcode(readOpcode());
-			printf("cp = %x\n", cpu.pc);
 		}
 		updateScreen();
 		SDL_Delay(FPS);

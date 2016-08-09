@@ -40,7 +40,6 @@ void decompter()
 
 Uint16 readOpcode()
 {
-	printf("hey\n");
 	return ((cpu.memory[cpu.pc] << 8) + cpu.memory[cpu.pc + 1]);
 }
 

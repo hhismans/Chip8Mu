@@ -84,5 +84,4 @@ void updateScreen()
 		}
 	}
 	SDL_Flip(screen);
-	printf("\tSCREEN UP\n");
 }

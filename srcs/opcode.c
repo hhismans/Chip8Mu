@@ -226,10 +226,7 @@ Uint8 opcodeNumber(Uint16 opcode)
 	for(ret = 0; ret < NBROPCODE; ret++)
 	{
 		if ((opc.masque[ret] & opcode) == opc.id[ret])
-		{
-			printf("OPCODE FIND ! Number %d\n", ret);
 			break;
-		}
 	}
 	if (ret >= NBROPCODE)
 	{
@@ -246,7 +243,6 @@ void execOpcode(Uint16 opcode)
 	b[1] = (opcode & 0x00F0) >> 4;
 	b[2] = (opcode & 0x0F00) >> 8;
 
-	printf("exec op code %x\n", opcode);
 	opcodeFctTab[opcodeNumber(opcode)](b);
 	cpu.pc += 2;
 }
